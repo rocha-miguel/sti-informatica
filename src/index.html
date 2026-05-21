@@ -7,7 +7,19 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="icon" type="image/png" href="/logo-sti-branco.png">
+  <link id="favicon" rel="icon" type="image/png" href="/logo-sti-branco.png">
+
+  <script>
+    const favicon = document.getElementById('favicon')
+    const temaEscuro = window.matchMedia('(prefers-color-scheme: dark)')
+
+    function alterarFavicon(e) {
+      favicon.href = e.matches ? '/logo-sti-branco.png' : '/logo-sti-preto.png'
+    }
+
+    alterarFavicon(temaEscuro)
+    temaEscuro.addEventListener('change', alterarFavicon)
+  </script>
 </head>
 
 <body>
